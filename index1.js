@@ -4,21 +4,21 @@ const list = document.getElementById("list")
 form.addEventListener("submit", function (event) {
     event.preventDefault()
 
-    var item = form.title.value
+    let item = form.title.value
     form.title.value = ""
 
-    var li = document.createElement("li")
+    const li = document.createElement("li")
     li.style.textAlign = "center"
     li.style.marginBottom = "10px"
     list.append(li)
 
-    var div = document.createElement("div")
+    const div = document.createElement("div")
     div.textContent = item
     li.append(div)
 
-    var newInput = document.createElement("input")
+    const newInput = document.createElement("input")
 
-    var editButton = document.createElement("button")
+    const editButton = document.createElement("button")
     editButton.textContent = "edit"
     editButton.style.margin = "2.5px"
     editButton.addEventListener("click", function () {
@@ -30,7 +30,7 @@ form.addEventListener("submit", function (event) {
     })
     li.append(editButton)
 
-    var deleteButton = document.createElement("button")
+    const deleteButton = document.createElement("button")
     deleteButton.textContent = "x"
     deleteButton.style.margin = "2.5px"
     deleteButton.addEventListener("click", function () {
@@ -38,7 +38,7 @@ form.addEventListener("submit", function (event) {
     })
     li.append(deleteButton)
 
-    var saveButton = document.createElement("button")
+    const saveButton = document.createElement("button")
     saveButton.textContent = "save"
     saveButton.style.margin = "2.5px"
     saveButton.addEventListener("click", function () {

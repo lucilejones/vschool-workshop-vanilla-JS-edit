@@ -4,23 +4,23 @@ const list = document.getElementById("list");
 form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    var item = form.title.value;
+    const item = form.title.value;
     form.title.value = "";
 
-    var li = document.createElement("li");
+    const li = document.createElement("li");
     li.style.textAlign = "center";
     li.style.marginBottom = "10px";
     list.append(li);
 
-    var div = document.createElement("div");
+    const div = document.createElement("div");
     div.textContent = item;
     li.appendChild(div);
 
-    var newInput = document.createElement("input");
+    const newInput = document.createElement("input");
     newInput.type = "text";
     newInput.style.display = "none"; // Initially hide input
 
-    var editButton = document.createElement("button");
+    const editButton = document.createElement("button");
     editButton.textContent = "edit";
     editButton.style.margin = "2.5px";
     editButton.addEventListener("click", function () {
@@ -28,7 +28,7 @@ form.addEventListener("submit", function (event) {
     });
     li.appendChild(editButton);
 
-    var deleteButton = document.createElement("button");
+    const deleteButton = document.createElement("button");
     deleteButton.textContent = "x";
     deleteButton.style.margin = "2.5px";
     deleteButton.addEventListener("click", function () {
@@ -36,13 +36,13 @@ form.addEventListener("submit", function (event) {
     });
     li.appendChild(deleteButton);
 
-    var saveButton = document.createElement("button");
+    const saveButton = document.createElement("button");
     saveButton.textContent = "save";
     saveButton.style.margin = "2.5px";
     saveButton.style.display = "none"; // Initially hide save button
     saveButton.addEventListener("click", function () {
-        item = newInput.value;
-        div.textContent = item;
+        const newItem = newInput.value;
+        div.textContent = newItem;
         toggleEditView();
     });
     li.appendChild(saveButton);
