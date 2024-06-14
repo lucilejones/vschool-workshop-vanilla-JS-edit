@@ -70,9 +70,6 @@ list.addEventListener("click", (event) => {
         newInput.value = div.textContent;
         editButton.style.display = "none";
         saveButton.style.display = "inline";
-
-        li.insertBefore(newInput, editButton);
-        li.insertBefore(saveButton, deleteButton)
         
     } else if (event.target === deleteButton) {
         li.remove();
