@@ -24,6 +24,7 @@ form.addEventListener("submit", function (event) {
     editButton.addEventListener("click", function () {
         div.replaceWith(newInput)
         newInput.value = item
+        newInput.style.display = "block"
         editButton.remove()
 
         li.insertBefore(saveButton, deleteButton)

@@ -47,16 +47,21 @@ form.addEventListener("submit", (event) => {
 list.addEventListener("click", (event) => {
     // a single event listener is added to the '#list' element to handle click events for all child elements
 
-    const li = event.target.closest("li"); // finds the closest 'li' element that contains the clicked target
+    const li = event.target.closest("li"); // finds the nearest ancestor 'li' element of the clicked element / the clicked target
 
     if (!li) return; // If not clicking on a list item, do nothing
 
-    // the relevant elements within the 'li' are identified
+    // the relevant child elements within the 'li' are identified
+    // querySelector finds the first element that matches a specified CSS selector; in this code we select elements within the 'li' by their tag names and positions
+    // ':nth-of-type(n)' - a CSS pseudo-class that matches elements based on their position among siblings of the same type
     const div = li.querySelector("div");
     const newInput = li.querySelector("input");
-    const editButton = li.querySelector("button:nth-of-type(1)");
-    const deleteButton = li.querySelector("button:nth-of-type(2)");
+    const editButton = li.querySelector("button:nth-of-type(1)"); 
+    // selects the first button, which is the 'edit' button
+    const deleteButton = li.querySelector("button:nth-of-type(2)"); 
+    // selects the second button, which is the 'delete' button
     const saveButton = li.querySelector("button:nth-of-type(3)");
+    // selects the third button, which is the 'save' button
 
     // based on which button is clicked, the appropriate action is performed
     if (event.target === editButton) {
@@ -65,6 +70,10 @@ list.addEventListener("click", (event) => {
         newInput.value = div.textContent;
         editButton.style.display = "none";
         saveButton.style.display = "inline";
+
+        li.insertBefore(newInput, editButton);
+        li.insertBefore(saveButton, deleteButton)
+        
     } else if (event.target === deleteButton) {
         li.remove();
     } else if (event.target === saveButton) {
