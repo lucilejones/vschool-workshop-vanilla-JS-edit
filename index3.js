@@ -2,6 +2,9 @@
 // instead of attaching event listeners to multiple child elements, we can attach a single event listener to a common ancestor (or parent) element
 // the parent element then handles all events that bubble up from its children
 
+// event delegation can consume less memory and be more efficient for handling events on a large number of dynamically created elements
+// the event targets do need to be handled carefullly
+
 
 const form = document.addItem;
 const list = document.getElementById("list");

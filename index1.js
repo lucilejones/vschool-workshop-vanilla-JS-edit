@@ -8,16 +8,26 @@ form.addEventListener("submit", function (event) {
     form.title.value = ""
 
     const li = document.createElement("li")
-    list.append(li)
 
     const div = document.createElement("div")
     div.textContent = item
-    li.append(div)
 
     const newInput = document.createElement("input")
 
     const editButton = document.createElement("button")
     editButton.textContent = "edit"
+
+    const deleteButton = document.createElement("button")
+    deleteButton.textContent = "x"
+
+    const saveButton = document.createElement("button")
+    saveButton.textContent = "save"
+
+    li.append(div)
+    li.append(editButton)
+    li.append(deleteButton)
+
+    list.append(li)
 
     editButton.addEventListener("click", function () {
         div.replaceWith(newInput)
@@ -27,18 +37,10 @@ form.addEventListener("submit", function (event) {
 
         li.insertBefore(saveButton, deleteButton)
     })
-    li.append(editButton)
-
-    const deleteButton = document.createElement("button")
-    deleteButton.textContent = "x"
 
     deleteButton.addEventListener("click", function () {
         li.remove()
     })
-    li.append(deleteButton)
-
-    const saveButton = document.createElement("button")
-    saveButton.textContent = "save"
 
     saveButton.addEventListener("click", function () {
         item = newInput.value

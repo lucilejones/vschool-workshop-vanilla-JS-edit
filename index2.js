@@ -8,11 +8,9 @@ form.addEventListener("submit", function (event) {
     form.title.value = "";
 
     const li = document.createElement("li");
-    list.append(li);
 
     const div = document.createElement("div");
     div.textContent = item;
-    li.appendChild(div);
 
     const newInput = document.createElement("input");
     newInput.type = "text";
@@ -21,49 +19,54 @@ form.addEventListener("submit", function (event) {
     const editButton = document.createElement("button");
     editButton.textContent = "edit";
 
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "x";
+
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "save";
+    saveButton.style.display = "none"; // Initially hide save button
+
+    li.appendChild(div);
+    li.appendChild(newInput);
+    li.appendChild(editButton);
+    li.appendChild(deleteButton);
+    li.appendChild(saveButton);
+
+    // li.append(div, newInput, editButton, deleteButton, saveButton)
+    list.append(li);
+
     editButton.addEventListener("click", function () {
         toggleEditView();
     });
-    li.appendChild(editButton);
-
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "x";
 
     deleteButton.addEventListener("click", function () {
         li.remove();
     });
-    li.appendChild(deleteButton);
 
-    const saveButton = document.createElement("button");
-    saveButton.textContent = "save";
-
-    saveButton.style.display = "none"; // Initially hide save button
     saveButton.addEventListener("click", function () {
         const newItem = newInput.value;
         div.textContent = newItem;
         toggleEditView();
     });
-    li.appendChild(saveButton);
 
     function toggleEditView() {
         if (newInput.style.display === "none") {
             // Switch to edit mode
-            div.style.display = "none";
-            newInput.style.display = "block";
+            div.style.display = "none"; // hides the div
+            newInput.style.display = "block"; // shows the input
             newInput.value = div.textContent;
-            editButton.style.display = "none";
-            saveButton.style.display = "inline-block";
+            editButton.style.display = "none"; // hides the edit button
+            saveButton.style.display = "inline-block"; // shows the save button
 
             li.insertBefore(newInput, editButton);
             li.insertBefore(saveButton, deleteButton)
         } else {
             // Switch to view mode
-            div.style.display = "block";
-            newInput.style.display = "none";
-            editButton.style.display = "inline-block";
-            saveButton.style.display = "none";
+            div.style.display = "block"; // shows the div
+            newInput.style.display = "none"; // hides the input
+            editButton.style.display = "inline-block"; // shows the edit button
+            saveButton.style.display = "none"; // hides the save button
         }
     }
 
-    li.appendChild(newInput);
 });
