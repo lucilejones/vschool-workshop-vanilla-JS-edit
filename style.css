@@ -35,7 +35,9 @@
 
 #list > li{
     list-style-type: none;
+    text-align: center;
     margin: 10px auto;
+    margin-bottom: 10px;
     border-bottom: solid 1px black;
     padding-bottom: 10px;
 }
@@ -43,4 +45,8 @@
 #list div {
     margin-bottom: 10px;
     text-align: center;
+}
+
+button {
+    margin: 2.5px;
 }

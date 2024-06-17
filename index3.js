@@ -14,8 +14,6 @@ form.addEventListener("submit", (event) => {
     form.title.value = "";
 
     const li = document.createElement("li");
-    li.style.textAlign = "center";
-    li.style.marginBottom = "10px";
     list.append(li);
 
     const div = document.createElement("div");
@@ -27,17 +25,17 @@ form.addEventListener("submit", (event) => {
 
     const editButton = document.createElement("button");
     editButton.textContent = "edit";
-    editButton.style.margin = "2.5px";
+
     li.append(editButton);
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "x";
-    deleteButton.style.margin = "2.5px";
+
     li.append(deleteButton);
 
     const saveButton = document.createElement("button");
     saveButton.textContent = "save";
-    saveButton.style.margin = "2.5px";
+
     saveButton.style.display = "none"; // Initially hide save button
     li.append(saveButton);
 
@@ -81,3 +79,8 @@ list.addEventListener("click", (event) => {
         editButton.style.display = "inline";
     }
 });
+
+
+
+// note about styling the edit input
+// if we use the same insertBefore() in the editButton functionality to keep the formatting (that we use in the index2.js example), that changes the order of the buttons, so then the third button is actually not the save button, and we're clickin on the button that says 'save' and it's deleting it

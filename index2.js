@@ -8,8 +8,6 @@ form.addEventListener("submit", function (event) {
     form.title.value = "";
 
     const li = document.createElement("li");
-    li.style.textAlign = "center";
-    li.style.marginBottom = "10px";
     list.append(li);
 
     const div = document.createElement("div");
@@ -22,7 +20,7 @@ form.addEventListener("submit", function (event) {
 
     const editButton = document.createElement("button");
     editButton.textContent = "edit";
-    editButton.style.margin = "2.5px";
+
     editButton.addEventListener("click", function () {
         toggleEditView();
     });
@@ -30,7 +28,7 @@ form.addEventListener("submit", function (event) {
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "x";
-    deleteButton.style.margin = "2.5px";
+
     deleteButton.addEventListener("click", function () {
         li.remove();
     });
@@ -38,7 +36,7 @@ form.addEventListener("submit", function (event) {
 
     const saveButton = document.createElement("button");
     saveButton.textContent = "save";
-    saveButton.style.margin = "2.5px";
+
     saveButton.style.display = "none"; // Initially hide save button
     saveButton.addEventListener("click", function () {
         const newItem = newInput.value;
