@@ -31,23 +31,23 @@ form.addEventListener("submit", function (event) {
     li.appendChild(editButton);
     li.appendChild(deleteButton);
     li.appendChild(saveButton);
-
     // li.append(div, newInput, editButton, deleteButton, saveButton)
-    list.append(li);
 
-    // editButton.addEventListener("click", function () {
-    //     toggleEditView();
-    // });
+    list.append(li);
 
     deleteButton.addEventListener("click", function () {
         li.remove();
     });
 
-    saveButton.addEventListener("click", function () {
-        const newItem = newInput.value;
-        div.textContent = newItem;
-        toggleEditView();
-    });
+    // editButton.addEventListener("click", function () {
+    //     toggleEditView();
+    // });
+
+    // saveButton.addEventListener("click", function () {
+    //     const newItem = newInput.value;
+    //     div.textContent = newItem;
+    //     toggleEditView();
+    // });
 
     // function toggleEditView() {
     //     if (newInput.style.display === "none") {
