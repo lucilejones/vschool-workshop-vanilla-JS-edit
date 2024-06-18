@@ -86,4 +86,4 @@ list.addEventListener("click", (event) => {
 
 
 // note about styling the edit input
-// if we use the same insertBefore() in the editButton functionality to keep the formatting (that we use in the index2.js example), that changes the order of the buttons, so then the third button is actually not the save button, and we're clickin on the button that says 'save' and it's deleting it
+// if we use the same insertBefore() in the editButton functionality to keep the formatting (that we use in the other js files), that changes the order of the buttons, so then the third button is actually not the save button, and we're clickin on the button that says 'save' and it's deleting it

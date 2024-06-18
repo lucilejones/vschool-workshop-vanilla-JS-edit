@@ -1,3 +1,7 @@
+// this example moves the edit and save functionality outside of the submit function
+// this can improve code readability and organization
+// it makes the code modular (separating the concerns) and reusable
+
 const form = document.addItem;
 const list = document.getElementById("list");
 
@@ -31,7 +35,6 @@ form.addEventListener("submit", function (event) {
     li.appendChild(editButton);
     li.appendChild(deleteButton);
     li.appendChild(saveButton);
-    // li.append(div, newInput, editButton, deleteButton, saveButton)
 
     list.append(li);
 
@@ -39,34 +42,34 @@ form.addEventListener("submit", function (event) {
         li.remove();
     });
 
-    // editButton.addEventListener("click", function () {
-    //     toggleEditView();
-    // });
+    editButton.addEventListener("click", function () {
+        toggleEditView(div, newInput, editButton, saveButton);
+    });
 
-    // saveButton.addEventListener("click", function () {
-    //     const newItem = newInput.value;
-    //     div.textContent = newItem;
-    //     toggleEditView();
-    // });
-
-    // function toggleEditView() {
-    //     if (newInput.style.display === "none") {
-    //         // Switch to edit mode
-    //         div.style.display = "none"; // hides the div
-    //         newInput.style.display = "block"; // shows the input
-    //         newInput.value = div.textContent;
-    //         editButton.style.display = "none"; // hides the edit button
-    //         saveButton.style.display = "inline-block"; // shows the save button
-
-    //         li.insertBefore(newInput, editButton);
-    //         li.insertBefore(saveButton, deleteButton)
-    //     } else {
-    //         // Switch to view mode
-    //         div.style.display = "block"; // shows the div
-    //         newInput.style.display = "none"; // hides the input
-    //         editButton.style.display = "inline-block"; // shows the edit button
-    //         saveButton.style.display = "none"; // hides the save button
-    //     }
-    // }
-
+    saveButton.addEventListener("click", function () {
+        saveEditView(div, newInput, editButton, saveButton);
+    });
 });
+
+function toggleEditView(div, newInput, editButton, saveButton) {
+    if (newInput.style.display === "none") {
+        // Switch to edit mode
+        div.style.display = "none"; // hides the div
+        newInput.style.display = "block"; // shows the input
+        newInput.value = div.textContent;
+        editButton.style.display = "none"; // hides the edit button
+        saveButton.style.display = "inline-block"; // shows the save button
+    } else {
+        // Switch to view mode
+        div.style.display = "block"; // shows the div
+        newInput.style.display = "none"; // hides the input
+        editButton.style.display = "inline-block"; // shows the edit button
+        saveButton.style.display = "none"; // hides the save button
+    }
+}
+
+function saveEditView(div, newInput, editButton, saveButton) {
+    const newItem = newInput.value;
+    div.textContent = newItem;
+    toggleEditView(div, newInput, editButton, saveButton);
+}
