@@ -1,7 +1,7 @@
 # vschool-workshop-vanilla-JS-edit
 
 # index1.js
-The first JavaScript file (index1.js) is the one used in the workshop demonstration. If uses a toggle function to switch between the view mode and the edit mode.<br/>
+The first JavaScript file (index1.js) is the one used in the workshop demonstration. It uses a toggle function to switch between the view mode and the edit mode.<br/>
 
 # index2.js
 The second JavaScript file (index2.js) is mostly the same code, but the functionality for the edit and the save has been moved outside the submit function.<br/>
