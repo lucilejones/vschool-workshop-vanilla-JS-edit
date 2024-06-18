@@ -35,9 +35,9 @@ form.addEventListener("submit", function (event) {
     // li.append(div, newInput, editButton, deleteButton, saveButton)
     list.append(li);
 
-    editButton.addEventListener("click", function () {
-        toggleEditView();
-    });
+    // editButton.addEventListener("click", function () {
+    //     toggleEditView();
+    // });
 
     deleteButton.addEventListener("click", function () {
         li.remove();
@@ -49,24 +49,24 @@ form.addEventListener("submit", function (event) {
         toggleEditView();
     });
 
-    function toggleEditView() {
-        if (newInput.style.display === "none") {
-            // Switch to edit mode
-            div.style.display = "none"; // hides the div
-            newInput.style.display = "block"; // shows the input
-            newInput.value = div.textContent;
-            editButton.style.display = "none"; // hides the edit button
-            saveButton.style.display = "inline-block"; // shows the save button
+    // function toggleEditView() {
+    //     if (newInput.style.display === "none") {
+    //         // Switch to edit mode
+    //         div.style.display = "none"; // hides the div
+    //         newInput.style.display = "block"; // shows the input
+    //         newInput.value = div.textContent;
+    //         editButton.style.display = "none"; // hides the edit button
+    //         saveButton.style.display = "inline-block"; // shows the save button
 
-            li.insertBefore(newInput, editButton);
-            li.insertBefore(saveButton, deleteButton)
-        } else {
-            // Switch to view mode
-            div.style.display = "block"; // shows the div
-            newInput.style.display = "none"; // hides the input
-            editButton.style.display = "inline-block"; // shows the edit button
-            saveButton.style.display = "none"; // hides the save button
-        }
-    }
+    //         li.insertBefore(newInput, editButton);
+    //         li.insertBefore(saveButton, deleteButton)
+    //     } else {
+    //         // Switch to view mode
+    //         div.style.display = "block"; // shows the div
+    //         newInput.style.display = "none"; // hides the input
+    //         editButton.style.display = "inline-block"; // shows the edit button
+    //         saveButton.style.display = "none"; // hides the save button
+    //     }
+    // }
 
 });

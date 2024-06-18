@@ -1,3 +1,6 @@
+// this example adds and removes elements for each edit and save
+// the example in index2.js (with the toggle) is more efficient
+
 const form = document.addItem
 const list = document.getElementById("list")
 
